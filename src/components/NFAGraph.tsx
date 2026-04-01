@@ -175,7 +175,7 @@ const NFAGraph: React.FC<NFAGraphProps> = ({ nfa, positions, activeStates, highl
               fill={active ? 'hsl(var(--primary) / 0.2)' : 'hsl(var(--secondary))'}
               stroke={active ? 'hsl(var(--primary))' : accept ? 'hsl(var(--muted-foreground))' : 'hsl(var(--border))'}
               strokeWidth={active ? 2.5 : 2}
-              className={`transition-all duration-300 ${active ? 'animate-state-pulse' : ''}`}
+              className="transition-all duration-300"
             />
             <text
               x={pos.x} y={pos.y}
