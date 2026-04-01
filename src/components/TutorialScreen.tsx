@@ -133,7 +133,5 @@ const TutorialScreen: React.FC<TutorialScreenProps> = ({ onStart }) => {
   );
 };
 
-// Need this import for the Play icon used above
-import { Play } from 'lucide-react';
 
 export default TutorialScreen;
