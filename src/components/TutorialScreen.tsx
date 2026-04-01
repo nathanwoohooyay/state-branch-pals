@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import NFAGraph from './NFAGraph';
 import SimulationViewer from './SimulationViewer';
-import { ChevronRight, Zap } from 'lucide-react';
+import { ChevronRight, Zap, Play } from 'lucide-react';
 
 const tutorialNFA = {
   states: ['q0', 'q1'],
