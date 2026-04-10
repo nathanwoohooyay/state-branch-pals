@@ -147,8 +147,8 @@ export const levels: Level[] = [
     challengeType: 'select-all',
     question: 'Which strings are accepted?',
     options: ['bb', 'ab', 'abb', 'a', 'b'],
-    correctAnswers: [0, 1, 2],
-    explanation: 'Via the ε-transition, q0 can jump to q1 at any time. Then reading b(s) reaches q2. So: "bb" (ε→q1, b→q2, b→q2), "ab" (a→q0, ε→q1, b→q2), "abb" works similarly.',
+    correctAnswers: [0, 1, 2, 4],
+    explanation: 'Via the ε-transition, q0 can jump to q1 at any time. Then reading b(s) reaches q2. So: "b" (ε→q1, b→q2), "bb" (ε→q1, b→q2, b→q2), "ab" (a→q0, ε→q1, b→q2), "abb" works similarly. "a" alone never reaches q2.',
     exampleInput: 'ab',
   },
   {
