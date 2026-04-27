@@ -19,7 +19,7 @@ const Index = () => {
   };
   const handlePrevLevel = () => {
     if (currentLevel <= 0) {
-      setPhase('tutorial');
+      setPhase('title');
     } else {
       setCurrentLevel(l => l - 1);
     }

@@ -163,7 +163,7 @@ const LevelScreen: React.FC<LevelScreenProps> = ({
         {/* Actions */}
         <div className="flex justify-between gap-3">
           <Button variant="ghost" onClick={onBack} className="gap-2 text-muted-foreground hover:text-foreground">
-            <ChevronLeft className="w-4 h-4" /> {levelIndex === 0 ? 'Tutorial' : 'Previous'}
+            <ChevronLeft className="w-4 h-4" /> {levelIndex === 0 ? 'Home' : 'Previous Level'}
           </Button>
           <div className="flex gap-3">
           {submitted && !isCorrect && (
