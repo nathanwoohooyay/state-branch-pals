@@ -188,6 +188,7 @@ const LevelScreen: React.FC<LevelScreenProps> = ({
               {isLast ? 'Finish Game' : 'Next Level'} <ChevronRight className="w-4 h-4" />
             </Button>
           )}
+          </div>
         </div>
       </div>
     </div>
