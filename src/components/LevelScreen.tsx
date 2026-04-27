@@ -3,18 +3,19 @@ import { Level } from '@/lib/nfa-types';
 import NFAGraph from './NFAGraph';
 import SimulationViewer from './SimulationViewer';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, XCircle, ChevronRight, Eye } from 'lucide-react';
+import { CheckCircle2, XCircle, ChevronRight, ChevronLeft, Eye } from 'lucide-react';
 
 interface LevelScreenProps {
   level: Level;
   onNext: () => void;
+  onBack: () => void;
   isLast: boolean;
   levelIndex: number;
   totalLevels: number;
 }
 
 const LevelScreen: React.FC<LevelScreenProps> = ({
-  level, onNext, isLast, levelIndex, totalLevels,
+  level, onNext, onBack, isLast, levelIndex, totalLevels,
 }) => {
   const [selected, setSelected] = useState<number[]>([]);
   const [submitted, setSubmitted] = useState(false);
@@ -160,7 +161,11 @@ const LevelScreen: React.FC<LevelScreenProps> = ({
         )}
 
         {/* Actions */}
-        <div className="flex justify-end gap-3">
+        <div className="flex justify-between gap-3">
+          <Button variant="ghost" onClick={onBack} className="gap-2 text-muted-foreground hover:text-foreground">
+            <ChevronLeft className="w-4 h-4" /> {levelIndex === 0 ? 'Tutorial' : 'Previous'}
+          </Button>
+          <div className="flex gap-3">
           {submitted && !isCorrect && (
             <Button variant="outline" onClick={handleRetry} className="border-border">
               Try Again

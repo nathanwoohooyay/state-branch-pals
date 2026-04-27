@@ -17,6 +17,13 @@ const Index = () => {
     setCurrentLevel(0);
     setPhase('playing');
   };
+  const handlePrevLevel = () => {
+    if (currentLevel <= 0) {
+      setPhase('tutorial');
+    } else {
+      setCurrentLevel(l => l - 1);
+    }
+  };
   const handleNextLevel = () => {
     if (currentLevel >= levels.length - 1) {
       setPhase('victory');
@@ -85,6 +92,7 @@ const Index = () => {
         levelIndex={currentLevel}
         totalLevels={levels.length}
         onNext={handleNextLevel}
+        onBack={handlePrevLevel}
         isLast={currentLevel >= levels.length - 1}
       />
     );
