@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Level } from '@/lib/nfa-types';
 import NFAGraph from './NFAGraph';
 import SimulationViewer from './SimulationViewer';
@@ -20,6 +20,25 @@ const LevelScreen: React.FC<LevelScreenProps> = ({
   const [selected, setSelected] = useState<number[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [showSim, setShowSim] = useState(false);
+  const [shuffleSeed, setShuffleSeed] = useState(0);
+
+  // Shuffled order: array of original indices in display order
+  const order = useMemo(() => {
+    const arr = level.options.map((_, i) => i);
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [level.id, shuffleSeed]);
+
+  // Reset state when level changes
+  useEffect(() => {
+    setSelected([]);
+    setSubmitted(false);
+    setShowSim(false);
+  }, [level.id]);
 
   const isCorrect = useMemo(() => {
     if (!submitted) return false;
@@ -48,6 +67,7 @@ const LevelScreen: React.FC<LevelScreenProps> = ({
     setSelected([]);
     setSubmitted(false);
     setShowSim(false);
+    setShuffleSeed(s => s + 1);
   };
 
   return (
@@ -88,7 +108,8 @@ const LevelScreen: React.FC<LevelScreenProps> = ({
           )}
 
           <div className="grid gap-2">
-            {level.options.map((opt, i) => {
+            {order.map((i, displayIdx) => {
+              const opt = level.options[i];
               const isSelected = selected.includes(i);
               const isCorrectOption = level.correctAnswers.includes(i);
               let optionClass = 'border-border hover:border-primary/50';
@@ -107,7 +128,7 @@ const LevelScreen: React.FC<LevelScreenProps> = ({
                   className={`w-full text-left px-4 py-3 rounded-lg border-2 transition-all duration-200 font-mono text-sm ${optionClass}`}
                   disabled={submitted}
                 >
-                  <span className="text-muted-foreground mr-3">{String.fromCharCode(65 + i)}.</span>
+                  <span className="text-muted-foreground mr-3">{String.fromCharCode(65 + displayIdx)}.</span>
                   <span className="text-foreground">{opt}</span>
                 </button>
               );
