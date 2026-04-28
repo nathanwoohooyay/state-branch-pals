@@ -196,17 +196,17 @@ const LevelScreen: React.FC<LevelScreenProps> = ({
             <Button
               onClick={handleSubmit}
               disabled={selected.length === 0}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none"
             >
-              Submit Answer
+              Submit
             </Button>
           )}
           {submitted && isCorrect && (
             <Button
               onClick={onNext}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 glow-primary"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 rounded-none"
             >
-              {isLast ? 'Finish Game' : 'Next Level'} <ChevronRight className="w-4 h-4" />
+              {isLast ? 'Finish' : 'Next level'} <ChevronRight className="w-4 h-4" />
             </Button>
           )}
           </div>
