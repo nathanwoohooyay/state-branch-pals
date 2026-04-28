@@ -23,7 +23,7 @@ const tutorialPositions = [
 const tutorialSteps = [
   {
     title: 'What is an NFA?',
-    content: 'A Nondeterministic Finite Automaton (NFA) is a theoretical model of computation - a machine that reads a string of symbols and decides whether to accept or reject it.',
+    content: 'A Nondeterministic Finite Automaton (NFA) is a theoretical model of computation, a machine that reads a string of symbols and decides whether to accept or reject it.',
     highlight: 'It is one of the foundational models in the Theory of Computation.',
     showGraph: false,
   },
@@ -42,20 +42,20 @@ const tutorialSteps = [
   },
   {
     title: 'NFA vs DFA',
-    content: 'A DFA (Deterministic FA) has exactly one transition per symbol per state. An NFA can have zero, one, or multiple transitions - this is nondeterminism.',
+    content: 'A DFA (Deterministic FA) has exactly one transition per symbol per state. An NFA can have zero, one, or multiple transitions, this is nondeterminism.',
     highlight: 'Key insight: NFAs and DFAs recognize exactly the same class of languages (regular languages), but NFAs can be exponentially more compact.',
     showGraph: false,
   },
   {
     title: 'States & Transitions',
-    content: 'Each circle is a state. Arrows show transitions - when the machine reads a symbol, it follows the matching arrow(s). The double circle marks an accept state.',
+    content: 'Each circle is a state. Arrows show transitions, when the machine reads a symbol, it follows the matching arrow(s). The double circle marks an accept state.',
     highlight: 'In this NFA: Q = {q0, q1}, Σ = {a, b}, q₀ = q0, F = {q1}.',
     showGraph: true,
   },
   {
     title: 'Nondeterminism',
     content: 'The key feature: an NFA can follow MULTIPLE transitions at once! When reading "b" from q0, it goes to BOTH q0 and q1 simultaneously. Think of it as exploring all possible paths at the same time.',
-    highlight: 'δ(q0, b) = {q0, q1} - two states at once!',
+    highlight: 'δ(q0, b) = {q0, q1}, two states at once!',
     showGraph: true,
   },
   {
@@ -66,14 +66,14 @@ const tutorialSteps = [
   },
   {
     title: 'ε-Transitions',
-    content: 'NFAs can also have ε-transitions (epsilon transitions) - transitions that occur WITHOUT reading any input symbol. The machine can "jump" between states for free.',
+    content: 'NFAs can also have ε-transitions (epsilon transitions), transitions that occur WITHOUT reading any input symbol. The machine can "jump" between states for free.',
     highlight: 'ε-closure(q) = the set of all states reachable from q via ε-transitions alone.',
     showGraph: false,
   },
   {
     title: 'Key Theorems',
     content: 'Important results you\'ll explore in the puzzles:',
-    highlight: 'Every NFA has an equivalent DFA (subset construction). Regular languages are closed under union, concatenation, and Kleene star - all provable via NFA constructions.',
+    highlight: 'Every NFA has an equivalent DFA (subset construction). Regular languages are closed under union, concatenation, and Kleene star, all provable via NFA constructions.',
     details: [
       { label: 'Subset Construction', value: 'Convert NFA → DFA by tracking sets of states' },
       { label: 'Union (L₁ ∪ L₂)', value: 'New start state with ε-transitions to both NFAs' },
@@ -84,7 +84,7 @@ const tutorialSteps = [
   },
   {
     title: 'Let\'s See It In Action',
-    content: 'Watch how the NFA processes the string "aab". Notice how after reading "b", the machine is in BOTH q0 and q1 - that\'s nondeterminism at work.',
+    content: 'Watch how the NFA processes the string "aab". Notice how after reading "b", the machine is in BOTH q0 and q1, that\'s nondeterminism at work.',
     highlight: 'Ready to try the puzzles?',
     showGraph: true,
     showSim: true,
