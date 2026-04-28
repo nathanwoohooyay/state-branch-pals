@@ -83,7 +83,7 @@ const SimulationViewer: React.FC<SimulationViewerProps> = ({
           {step ? `{${[...step.activeStates].join(', ')}}` : '{}'}
         </span>
         {step?.activeStates.size === 0 && (
-          <span className="text-destructive ml-2">(dead - no active states)</span>
+          <span className="text-destructive ml-2">(dead, no active states)</span>
         )}
       </div>
 

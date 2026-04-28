@@ -124,7 +124,7 @@ export const levels: Level[] = [
       'Strings of even length',
     ],
     correctAnswers: [0],
-    explanation: 'When reading "1", q0 branches to q1. From q1, any next symbol goes to q2 (accept). So the second-to-last symbol must be "1". This is a classic NFA - the equivalent DFA needs 4 states!',
+    explanation: 'When reading "1", q0 branches to q1. From q1, any next symbol goes to q2 (accept). So the second-to-last symbol must be "1". This is a classic NFA, the equivalent DFA needs 4 states!',
     exampleInput: '010',
   },
   {
@@ -149,7 +149,7 @@ export const levels: Level[] = [
     question: 'Which strings are accepted? (ε means the empty string)',
     options: ['ε (empty string)', 'ab', 'a', 'ba', 'abab'],
     correctAnswers: [0, 1, 4],
-    explanation: 'Since q0 is both start and accept, ε is accepted (we start in an accept state). "ab" goes q0→q1→q0 (accept). "abab" goes q0→q1→q0→q1→q0 (accept). "a" goes q0→q1 (not accept). "ba" - no transition from q0 on "b".',
+    explanation: 'Since q0 is both start and accept, ε is accepted (we start in an accept state). "ab" goes q0→q1→q0 (accept). "abab" goes q0→q1→q0→q1→q0 (accept). "a" goes q0→q1 (not accept). "ba", no transition from q0 on "b".',
     exampleInput: 'ab',
   },
 
@@ -338,7 +338,7 @@ export const levels: Level[] = [
       'a(a|b)*b',
     ],
     correctAnswers: [0],
-    explanation: 'From q0, reading any mix of a\'s and b\'s keeps you in q0. Reading "a" also branches to q1, then "b" reaches q2 (accept). So the NFA accepts strings ending in "ab" - exactly (a|b)*ab.',
+    explanation: 'From q0, reading any mix of a\'s and b\'s keeps you in q0. Reading "a" also branches to q1, then "b" reaches q2 (accept). So the NFA accepts strings ending in "ab", exactly (a|b)*ab.',
     exampleInput: 'bab',
   },
   {
