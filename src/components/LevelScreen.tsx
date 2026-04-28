@@ -142,13 +142,13 @@ const LevelScreen: React.FC<LevelScreenProps> = ({
             <div className="flex items-center gap-3 mb-3">
               {isCorrect ? (
                 <>
-                  <CheckCircle2 className="w-6 h-6 text-success" />
-                  <span className="text-lg font-bold text-success">Correct!</span>
+                  <CheckCircle2 className="w-5 h-5 text-success" />
+                  <span className="text-sm font-mono uppercase tracking-[0.2em] text-success">Accepted</span>
                 </>
               ) : (
                 <>
-                  <XCircle className="w-6 h-6 text-destructive" />
-                  <span className="text-lg font-bold text-destructive">Not quite!</span>
+                  <XCircle className="w-5 h-5 text-destructive" />
+                  <span className="text-sm font-mono uppercase tracking-[0.2em] text-destructive">Rejected</span>
                 </>
               )}
             </div>
@@ -196,17 +196,17 @@ const LevelScreen: React.FC<LevelScreenProps> = ({
             <Button
               onClick={handleSubmit}
               disabled={selected.length === 0}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none"
             >
-              Submit Answer
+              Submit
             </Button>
           )}
           {submitted && isCorrect && (
             <Button
               onClick={onNext}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 glow-primary"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 rounded-none"
             >
-              {isLast ? 'Finish Game' : 'Next Level'} <ChevronRight className="w-4 h-4" />
+              {isLast ? 'Finish' : 'Next level'} <ChevronRight className="w-4 h-4" />
             </Button>
           )}
           </div>

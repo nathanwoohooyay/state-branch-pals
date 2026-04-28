@@ -38,42 +38,44 @@ const Index = () => {
 
   if (phase === 'title') {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
-        <div className="max-w-lg w-full text-center space-y-8 animate-fade-in">
-          <div className="space-y-4">
-            <div className="flex justify-center">
-              <div className="w-20 h-20 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center glow-primary">
-                <Zap className="w-10 h-10 text-primary" />
-              </div>
+      <div className="min-h-screen flex items-center justify-center p-6">
+        <div className="max-w-xl w-full space-y-10 animate-fade-in">
+          <div className="space-y-6">
+            <div className="flex items-center gap-3 text-primary">
+              <Zap className="w-4 h-4" strokeWidth={2.5} />
+              <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground">
+                CS / Theory of Computation
+              </span>
             </div>
-            <h1 className="text-5xl font-bold text-foreground glow-text-primary">
-              Decode the<br />Automaton
+            <h1 className="text-5xl md:text-6xl font-semibold text-foreground leading-[1.05] tracking-tight">
+              Decode the<br />Automaton.
             </h1>
-            <p className="text-muted-foreground text-lg max-w-md mx-auto">
-              Learn how Nondeterministic Finite Automata work by solving puzzles and watching state machines come alive.
+            <div className="rule-line" />
+            <p className="text-muted-foreground text-base leading-relaxed max-w-md">
+              An interactive primer on Nondeterministic Finite Automata. Read the formalism, then trace strings through state machines until the intuition clicks.
             </p>
           </div>
 
-          <div className="space-y-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button
               onClick={handleStartTutorial}
               size="lg"
-              className="w-full max-w-xs bg-primary text-primary-foreground hover:bg-primary/90 glow-primary text-lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-6"
             >
-              Start Learning
+              Start the primer
             </Button>
             <Button
               onClick={handleStartGame}
               variant="outline"
               size="lg"
-              className="w-full max-w-xs border-border text-foreground"
+              className="border-border text-foreground rounded-none px-6"
             >
-              Skip to Puzzles
+              Skip to puzzles
             </Button>
           </div>
 
-          <p className="text-xs text-muted-foreground font-mono">
-            {levels.length} levels • Interactive simulations • No prerequisites
+          <p className="text-[11px] text-muted-foreground font-mono tracking-wider">
+            {String(levels.length).padStart(2, '0')} LEVELS  ·  INTERACTIVE SIMULATIONS  ·  NO PREREQUISITES
           </p>
         </div>
       </div>
